@@ -2,10 +2,7 @@ package com.igorsinchuk.datarepository.controller;
 
 import com.igorsinchuk.datarepository.model.User;
 import com.igorsinchuk.datarepository.repository.UserRepository;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

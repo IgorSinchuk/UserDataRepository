@@ -75,13 +75,19 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.lastName").value("Last"));
 
 
-
-
     }
 
     @Test
     public void getUserById() throws Exception {
+        User user = new User();
+        user.setId(3);
 
+        given(userController.getUserById(user.getId())).willReturn(user);
+        mockMvc.perform(get("/list/users/3" + user.getId())
+        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").value(3))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$id").value(user.getId()));
     }
 
     @Test

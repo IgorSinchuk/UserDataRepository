@@ -2,7 +2,10 @@ package com.igorsinchuk.datarepository.controller;
 
 import com.igorsinchuk.datarepository.model.User;
 import com.igorsinchuk.datarepository.repository.UserRepository;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,14 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping(value = "/users")
     public List<User> getAll() {
@@ -33,6 +44,5 @@ public class UserController {
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {
         return userRepository.save(user);
-
     }
 }

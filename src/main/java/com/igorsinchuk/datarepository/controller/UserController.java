@@ -37,9 +37,22 @@ public class UserController {
         }
         return ResponseEntity.ok().body(user);
     }
-
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable(value = "id")Integer userId) {
+        User user = userRepository.findOne(userId);
+        if (user == null) {
+            return ResponseEntity.ok().build();
+        }
+
+        userRepository.delete(user);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/user/{id}")
+    public ResponseEntity<User> updateUser 
 }

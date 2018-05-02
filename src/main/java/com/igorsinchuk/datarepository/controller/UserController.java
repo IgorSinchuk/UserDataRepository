@@ -53,6 +53,4 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/user/{id}")
-    public ResponseEntity<User> updateUser 
 }

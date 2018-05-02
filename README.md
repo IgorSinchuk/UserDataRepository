@@ -1,3 +1,3 @@
 # UserDataRepository
-REST task for Juja
+REST application 
 
